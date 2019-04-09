@@ -38,6 +38,7 @@ namespace xadrez
                     break;
                 }
                 pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna - 1;
             }
 
             //ne
@@ -49,7 +50,9 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna + 1;
+
             }
 
             //so
@@ -61,7 +64,8 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.linha = pos.linha + 1;
+                pos.coluna = pos.coluna - 1;
             }
 
             //se
@@ -73,7 +77,9 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.linha = pos.linha + 1;
+                pos.coluna = pos.coluna + 1;
+
             }
 
             return mat;

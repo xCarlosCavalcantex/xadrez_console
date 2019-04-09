@@ -125,6 +125,59 @@ namespace xadrez
                 pos.coluna = pos.coluna - 1;
             }
 
+            //no
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
+            while (tab.posicaoValida(pos) && podeMover(pos))
+            {
+                mat[pos.linha, pos.coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna - 1;
+            }
+
+            //ne
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
+            while (tab.posicaoValida(pos) && podeMover(pos))
+            {
+                mat[pos.linha, pos.coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna + 1;
+
+            }
+
+            //so
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
+            while (tab.posicaoValida(pos) && podeMover(pos))
+            {
+                mat[pos.linha, pos.coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.linha = pos.linha + 1;
+                pos.coluna = pos.coluna - 1;
+            }
+
+            //se
+            pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
+            while (tab.posicaoValida(pos) && podeMover(pos))
+            {
+                mat[pos.linha, pos.coluna] = true;
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
+                    break;
+                }
+                pos.linha = pos.linha + 1;
+                pos.coluna = pos.coluna + 1;
+
+            }
             return mat;
         }
     }
