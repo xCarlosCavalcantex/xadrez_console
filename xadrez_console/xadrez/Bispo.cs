@@ -1,17 +1,19 @@
-﻿using tabuleiro;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using tabuleiro;
 
 namespace xadrez
 {
-    class Torre : Peca
+    class Bispo : Peca 
     {
-        public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Bispo (Tabuleiro tab, Cor cor) : base(tab, cor)
         {
-
         }
 
         public override string ToString()
         {
-            return "T";
+            return "B";
         }
 
         private bool podeMover(Posicao pos)
@@ -26,8 +28,8 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //acima
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
+            //no
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -38,8 +40,8 @@ namespace xadrez
                 pos.linha = pos.linha - 1;
             }
 
-            //abaixo
-            pos.definirValores(posicao.linha + 1, posicao.coluna);
+            //ne
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -50,8 +52,8 @@ namespace xadrez
                 pos.linha = pos.linha + 1;
             }
 
-            //direita
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
+            //so
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -62,8 +64,8 @@ namespace xadrez
                 pos.coluna = pos.coluna + 1;
             }
 
-            //esquerda
-            pos.definirValores(posicao.linha, posicao.coluna - 1);
+            //se
+            pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -73,7 +75,11 @@ namespace xadrez
                 }
                 pos.coluna = pos.coluna - 1;
             }
+
             return mat;
+
         }
+
     }
 }
+
